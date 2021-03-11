@@ -1,0 +1,160 @@
+html {
+}
+
+body {
+    margin-top: 30px;
+}
+
+#subContainer {
+}
+
+#work-list {
+    position: relative;
+    width: 400px;
+    margin-bottom: 30px;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: #0099ff;
+    margin: 10px;
+}
+
+#btn-name {
+    border-bottom-style: solid;
+}
+
+#btn-badge {
+    margin-top: 10px;
+}
+
+#work-list-text {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+#cell-text {
+    border-style: none;
+    border-radius: 20px;
+    background-color: #e6e6e6;
+    margin: 10px;
+    height: 70px;
+    justify-items: center;
+    align-items: center;
+}
+#cell-text:hover #btn-dropdown {
+    display: block;
+}
+
+#text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#btn-dropdown {
+    display: none;
+    float: right;
+}
+
+#dropdown-submenu {
+    background-color: gray;
+}
+
+/* .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 100;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+
+.dropdown-submenu {
+    position: relative;
+}
+
+/* Những dropmenu nằm trong drop-submenu sẽ thực thi css này */
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    /* -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px; */
+}
+
+/* Khi nhấp vào dropdown-submenu thì sẽ hiện dropdown-menu trong dropdown-submenu */
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+/* Hiện tam giác */
+.dropdown-submenu>a:after {
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 8px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+
+/* .dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+} */
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#todo-form {
+    margin-bottom: 50px;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+#txt_required {
+    background-color: red;
+}

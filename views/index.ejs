@@ -1,0 +1,253 @@
+<html ng-app = 'app.works'>
+    <head>
+        <title>
+            Workflow Management
+        </title>
+
+        <!-- Load CDN style -->
+        <link href = '//stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' rel = 'stylesheet' />
+        <link href = '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel = 'stylesheet' />
+        <link href = '//cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.10.2/css/xeditable.min.css' rel = 'stylesheet' />
+        
+        <!-- Load app styles -->
+        <link href = 'assets/css/style.css' rel = 'stylesheet' />
+
+        <!-- Load CDN script -->
+        <script src = '//cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js'></script>
+        <script src = '//cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.10.2/js/xeditable.min.js'></script>
+        <script src = '//cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+        <!-- <script src = '//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js'></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src = '//stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
+        <!-- <script src = '//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js'></script> -->
+
+        <!-- Load app -->
+        <script src = 'assets/js/main/app.js'></script>
+        <script src = 'assets/js/main/services/svWorks.js'></script>
+
+    </head>
+
+    <body ng-controller = 'todoController'>
+        <div class = 'container'>
+
+            <div id = 'subContainer' class = 'row text-center'>
+
+                <div id = 'work-list' class = 'col-sm'>
+                    <div id = 'btn-name' class = 'text-center'>
+                        <h1>
+                            <button type = 'button' class = 'btn btn-primary' id = 'btn-badge'>
+                                {{ headers[0] }} <span class="badge badge-light">{{ getLenSection(0) }}</span>
+                            </button>
+                        </h1>
+                    </div>
+                    <div id = 'work-list-text'>
+                        <div id = 'cell-text' ng-repeat = 'work in works' ng-if = 'work.status == 0'>
+                            <div id = 'text'>
+                                {{ work.text }}
+                            </div>
+                            <!-- <div id = 'btn-dropdown'>
+                                <div class="btn-group dropdown">
+                                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+                                    id = "dropdownMenuButton" data-toggle="dropdown" aria-haspopup = "true" 
+                                    aria-expanded="false">
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class = "dropdown-item" data-toggle="modal" data-target="#exampleModal1">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            Update
+                                            <div class="modal" id="exampleModal1" tabindex="-1" 
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        ...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class = "dropdown-item" ng-click = 'deleteWork(work)'><i class="fa fa-trash" aria-hidden="true"></i>
+                                            Delete
+                                        </a>
+                                        <a class = "dropdown-item" ng-click = 'next(work)'><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                            Next
+                                        </a>
+                                        <a class = 'btn-group dropdown'>
+                                            <a class = "dropdown-item dropdown-toggle" id="dropdownMenuLink" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Move to
+                                            </a>
+                                            <div id = 'dropdown-submenu' class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" ng-click = 'moveTo(work, 1)'>Doing</a>
+                                                <a class="dropdown-item" ng-click = 'moveTo(work, 2)'>Done</a>
+                                            </div>
+                                        </a>
+
+                                        
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!-- <div class="dropdown">
+                                <button class="dropbtn">Dropdown</button>
+                                <div class="dropdown-content">
+                                  <a href="#">Link 1</a>
+                                  <a href="#">Link 2</a>
+                                  <a href="#">Link 3</a>
+                                </div>
+                            </div> -->
+
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Dropdown
+                                </button>
+                                <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                    <li class="dropdown-item"><a href="#">Some action</a></li>
+                                    <li class="dropdown-item"><a href="#">Some other action</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-submenu">
+                                      <a  class="dropdown-item" tabindex="-1" href="#">Hover me for more options</a>
+                                      <ul class="dropdown-menu">
+                                        <li class="dropdown-item"><a tabindex="-1" href="#">Second level</a></li>
+                                        <li class="dropdown-submenu">
+                                          <a class="dropdown-item" href="#">Even More..</a>
+                                          <ul class="dropdown-menu">
+                                              <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                </ul>
+                                              </li>
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                          </ul>
+                                        </li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div id = 'work-list'>
+                    <div id = 'btn-name' class = 'text-center'>
+                        <h1>
+                            <button type = 'button' class = 'btn btn-primary' id = 'btn-badge'>
+                                {{ headers[1] }} <span class="badge badge-light">{{ getLenSection(1) }}</span>
+                            </button>
+                        </h1>
+                    </div>
+                    <div id = 'work-list-text'>
+                        <div id = 'cell-text' ng-repeat = 'work in works' ng-if = 'work.status == 1'>
+                            <div id = 'text'>
+                                {{ work.text }}
+                            </div>
+                            <div id = 'btn-dropdown'>
+                                <div class="btn-group dropdown">
+                                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+                                    id = "dropdownMenuButton" data-toggle="dropdown" aria-haspopup = "true" 
+                                    aria-expanded="false">
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class = "dropdown-item" ng-click = 'updateWork(work)'>Update</a>
+                                        <a class = "dropdown-item" ng-click = 'deleteWork(work)'>Delete</a>
+                                        <a class = "dropdown-item" ng-click = 'next(work)'>Next</a>
+                                        <a class = "dropdown-item" ng-click = 'back(work)'>Back</a>
+                                        <a class = 'btn-group'>
+                                            <a class = "dropdown-item dropdown-toggle" id="dropdownMenuLink" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Move to
+                                            </a>
+                                            <div id = 'dropdown-submenu' class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" ng-click = 'moveTo(work, 1)'>Doing</a>
+                                                <a class="dropdown-item" ng-click = 'moveTo(work, 2)'>Done</a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id = 'work-list'>
+                    <div id = 'btn-name' class = 'text-center'>
+                        <h1>
+                            <button type = 'button' class = 'btn btn-primary' id = 'btn-badge'>
+                                {{ headers[2] }} <span class="badge badge-light">{{ getLenSection(2) }}</span>
+                            </button>
+                        </h1>
+                    </div>
+                    <div id = 'work-list-text'>
+                        <div id = 'cell-text' ng-repeat = 'work in works' ng-if = 'work.status == 2'>
+                            <div id = 'text'>
+                                {{ work.text }}
+                            </div>
+                            <div id = 'btn-dropdown'>
+                                <div class="btn-group dropdown">
+                                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" 
+                                    id = "dropdownMenuButton" data-toggle="dropdown" aria-haspopup = "true" 
+                                    aria-expanded="false">
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class = "dropdown-item" ng-click = 'updateWork(work)'>Update</a>
+                                        <a class = "dropdown-item" ng-click = 'deleteWork(work)'>Delete</a>
+                                        <a class = "dropdown-item" ng-click = 'back(work)'>Back</a>
+                                        <a class = 'btn-group dropright'>
+                                            <a role = 'button' class = "dropdown-item dropdown-toggle" id="dropdownMenuLink" 
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Move to
+                                            </a>
+                                            <div id = 'dropdown-submenu' class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <a class="dropdown-item" ng-click = 'moveTo(work, 1)'>Doing</a>
+                                                <a class="dropdown-item" ng-click = 'moveTo(work, 2)'>Done</a>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <p ng-show = 'loading' class = 'text-center'>
+                <span class = 'fa fa-spinner fa-spin fa-3x'></span>
+            </p>
+
+            <div id = 'todo-form' class = 'row justify-content-md-center'>
+                <div class = 'col-sm-8 col-sm-offset-2 text-center'>
+                    <form >
+                        <div class = 'form-group'>
+                            <input type = 'text' ng-model = 'formData.text' name = 'txt'
+                            class = 'form-control input-lg text-center' placeholder="What will you study?">
+                            <br />
+                            <input type = 'text' ng-model = 'formData.link' name = 'lnk'
+                            class = 'form-control input-lg text-center' placeholder="What link of course?">
+                        </div>
+                        <button type = 'submit' ng-disabled = '!formData.text' class = 'btn btn-primary btn-lg'
+                        ng-click = 'createWork()'>Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
